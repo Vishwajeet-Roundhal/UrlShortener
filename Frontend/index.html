@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>URL Shortener</h1>
+
+        <form id="url-form">
+            <label for="long-url">Enter Long URL:</label>
+            <input type="url" id="long-url" placeholder="https://www.example.com" required>
+
+            <label for="custom-url">Enter Custom Short URL (Optional):</label>
+            <input type="text" id="custom-url" placeholder="custom-short-url">
+
+            <button type="submit">Generate Short URL</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h3>Generated Short URL:</h3>
+            <p id="short-url"></p>
+            <button id="copy-btn">Copy</button> <!-- Copy Button -->
+        </div>
+
+        <div id="error" class="hidden">
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

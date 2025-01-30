@@ -25,7 +25,7 @@ public class UrlService {
 
             // Save the long URL with the custom short URL
             saveUrlMapping(longUrl, customShortUrl);
-            return customShortUrl;  // Return the custom short URL (e.g., "googly")
+            return customShortUrl; // Return the custom short URL (e.g., "googly")
         }
 
         // Otherwise, generate a random short URL if no custom URL is provided
@@ -37,7 +37,7 @@ public class UrlService {
         // Save the long and short URL mapping to the database
         saveUrlMapping(longUrl, shortUrl);
 
-        return shortUrl;  // Return the generated short URL (e.g., "abc12345")
+        return shortUrl; // Return the generated short URL (e.g., "abc12345")
     }
 
     // Helper method to save the long and short URL mapping to the database
@@ -47,6 +47,7 @@ public class UrlService {
         urlMapping.setShortUrl(shortUrl);
         urlRepository.save(urlMapping);
     }
+
 
     // Method to retrieve the long URL using the short URL
     public String getLongUrl(String shortUrl) {

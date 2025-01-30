@@ -20,6 +20,7 @@ public class UrlController {
 
 
     // Endpoint to shorten a URL with an optional custom short URL
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/shorten")
     public String shortenUrl(@RequestBody UrlRequest urlRequest) {
         return urlService.shortenUrl(urlRequest.getLongUrl(), urlRequest.getCustomShortUrl());
@@ -42,4 +43,5 @@ public class UrlController {
         // Return a default error URL or a message if not found
         return new RedirectView("https://www.example.com");  // Default fallback URL
     }
+    
 }

@@ -7,30 +7,47 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>URL Shortener</h1>
-
-        <form id="url-form">
-            <label for="long-url">Enter Long URL:</label>
-            <input type="url" id="long-url" placeholder="https://www.example.com" required>
-
-            <label for="custom-url">Enter Custom Short URL (Optional):</label>
-            <input type="text" id="custom-url" placeholder="custom-short-url">
-
-            <button type="submit">Generate Short URL</button>
-        </form>
-
-        <div id="result" class="hidden">
-            <h3>Generated Short URL:</h3>
-            <p id="short-url"></p>
-            <button id="copy-btn">Copy</button> <!-- Copy Button -->
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>URL Shortener</h1>
         </div>
-
-        <div id="error" class="hidden">
-            <p id="error-message"></p>
+        <div class="nav-links">
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="" onclick="logout()">logout</a>
         </div>
-    </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Auth Forms Container -->
+        <br />
+
+        <!-- URL Shortener Form -->
+        <section id="url-form-container" class="">
+            <form id="url-form">
+                <label for="long-url">Enter Long URL:</label>
+                <input type="url" id="long-url" placeholder="https://www.example.com" required>
+            
+                <label for="custom-url">Enter Custom Short URL (Optional):</label>
+                <input type="text" id="custom-url" placeholder="custom-short-url" disabled> <!-- Disabled initially -->
+            
+                <button type="submit">Generate Short URL</button>
+            </form>
+            
+            <div id="result" style="display: none;">
+                <h3>Generated Short URL:</h3>
+                <p id="short-url"></p>
+                <button id="copy-btn">Copy</button>
+            </div>
+            
+            <div id="error" style="display: none;">
+                <p id="error-message"></p>
+            </div>
+            
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>

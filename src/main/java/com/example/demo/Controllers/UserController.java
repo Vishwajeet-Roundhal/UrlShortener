@@ -2,6 +2,10 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Models.User;
 import com.example.demo.services.UserService;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,9 +34,17 @@ public class UserController {
         // Simple login check (without bcrypt or JWT)
         User user = userService.loginUser(username, password);
         if (user != null) {
-            return new ResponseEntity<>("Login successful", HttpStatus.OK); // Return success if login is successful
-        } else {
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED); // Return 401 if credentials are invalid
-        }
+        // Return success response as a Map (Spring will automatically convert it to JSON)
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", "Login successful");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    } else {
+        // Return error response as a Map
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", false);
+        response.put("message", "Invalid credentials");
+        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+    }
     }
 }
